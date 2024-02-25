@@ -1,0 +1,35 @@
+import time
+
+class CuckooClock:
+    def __init__(self):
+        self.hours = 0
+
+    def set_time(self, hours):
+        self.hours = hours
+
+    def cuckoo(self):
+        print("Куку!")
+
+# Создаем экземпляр часов с кукушкой
+clock = CuckooClock()
+
+# Устанавливаем начальное время
+clock.set_time(0)
+
+try:
+    while True:
+        # Выводим текущее время
+        print(f"Текущее время: {clock.hours} часов")
+
+        # Проверяем, должен ли куковать кукушка
+        if clock.hours % 1 == 0:
+            clock.cuckoo()
+
+        # Увеличиваем время на 1 час
+        clock.hours += 1
+
+        # Ждем 1 секунду (можно изменить для более быстрого или медленного прохождения времени)
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    print("Программа завершена.")
